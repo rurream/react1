@@ -1,0 +1,10 @@
+.contadorComp{
+    /* background-color: red; */
+    min-height: 100%;
+    /* color: white; */
+    margin-top: 5rem;
+}
+.listaContador{
+    color: white;
+    font-weight: bold;
+}

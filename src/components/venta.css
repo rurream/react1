@@ -1,0 +1,14 @@
+.col{
+    /* border: 1px solid red; */
+    text-align: center;
+    vertical-align: middle;
+}
+
+.svg-icon {
+    width: 2rem;
+    height: 2rem;
+}
+.valorCont{
+    font-size: 1.2rem;
+    font-weight: bold;
+}

@@ -1,23 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+import Contador from './components/Contador';
+import Cards from './components/Cards';
+import AjustarPrecios from './components/AjustarPrecios';
+import Carro from './components/Carro';
+import './App.css'
+import NavBar from './components/NavBar';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className=" App">
+      <Router>
+        <NavBar />
+        <Switch>
+        <Route path="/" exact>
+            <Contador />
+          </Route>
+          <Route path="/contador" exact>
+            <Contador />
+          </Route>
+          <Route path="/cards" exact>
+            <Cards />
+          </Route>
+          <Route path="/nuevo" exact>
+            <Cards />
+          </Route>
+          <Route path="/ajustarPrecios" exact>
+            <AjustarPrecios />
+          </Route>
+          <Route path="/carro" exact>
+            <Carro />
+          </Route>
+        </Switch>
+      </Router>
+
+
+
     </div>
   );
 }
