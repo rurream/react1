@@ -7,6 +7,7 @@ function Cards() {
 
     const [productosLocal, setProductosLocal] = useState(productos);
     const [montoTotal, setMontototal] = useState(0);
+    const [textFil, setTextFil] =  useState('');
 
     const actualizarProductos = ()=>{
         setProductosLocal([...productos]);
@@ -20,17 +21,27 @@ function Cards() {
         } else {
             setMontototal(0);
         }
+        filtrarProductos(textFil);
+    }
+
+    const filtrarProductos = (text)=>{
+        setTextFil(text);
+        const prodsFiltrados = productos.filter(prod =>{
+            const filtro = prod.name.toLowerCase().includes(text.toLowerCase());
+            return filtro;
+        });
+        console.log(prodsFiltrados);
+        setProductosLocal([...prodsFiltrados]);
     }
     
     React.useEffect(()=>{
         const prodConStock = productosLocal.filter(prod => {return prod.stock > 0});
-        // console.log(prodConStock);
     }, []);
 
     return (
         <Fragment>
-            <Venta montoTotal = {montoTotal}/>
-            <div className="container d-flex justify-content-center align-items-center ">
+            <Venta montoTotal = {montoTotal} filtrarProd = {filtrarProductos} textFil={textFil}/>
+            <div className="container ">
                 <div className="row">
                     {
                         productosLocal.map((prod, index)=>

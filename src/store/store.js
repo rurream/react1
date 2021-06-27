@@ -55,7 +55,7 @@ const modificarProductos = (newProd)=>{
     productos = [...newProd];
 }
 const modifListaVenta = (idProd, operacion)=>{
-    console.log(idProd +" / " + operacion)
+    
     const indexListaVenta = listaVenta.findIndex(item =>{return item.id == idProd});
     const indexProductos = productos.findIndex(item =>{return item.id == idProd});
     if(operacion == "restar"){
@@ -98,8 +98,6 @@ const modifListaVenta = (idProd, operacion)=>{
 
 }
 const venta = (data)=>{
-    // console.log(data);
-    // check if id ya existe en venta
     if(listaVenta.some(prod =>{return prod.id === data.id})){
         const indexProdVenta = listaVenta.findIndex(prod=>{
             return prod.id === data.id;

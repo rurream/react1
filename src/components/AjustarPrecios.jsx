@@ -27,7 +27,7 @@ function AjustarPrecios() {
         console.log(newListaProd);
         modificarProductos(newListaProd);
     }
-    //(prod.price + data.valorIncremento)
+    
     return (
         <Fragment>
             <div className="container mt-5">

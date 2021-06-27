@@ -1,4 +1,4 @@
-// import logo from './logo.svg';
+
 import Contador from './components/Contador';
 import Cards from './components/Cards';
 import AjustarPrecios from './components/AjustarPrecios';
@@ -8,8 +8,7 @@ import NavBar from './components/NavBar';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 function App() {
@@ -38,9 +37,6 @@ function App() {
           </Route>
         </Switch>
       </Router>
-
-
-
     </div>
   );
 }

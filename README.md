@@ -73,9 +73,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 npm i bootstrap
 en index.js: import 'bootstrap/dist/css/bootstrap.min.css'
 
-npm i prop-types
-
-npm i animate.css --save
 
 react developer tools{
     https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=es

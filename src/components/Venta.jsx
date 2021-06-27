@@ -1,34 +1,28 @@
 import React, { Fragment } from 'react';
 import './venta.css';
-import { listaVenta } from '../store/store';
 import {Link } from "react-router-dom";
 
-function Venta({montoTotal}) {
+function Venta({montoTotal, filtrarProd, textFil}) {
 
-    // const [montoTotal, setMontototal] = useState(0);
+    const [textFiltro, setTextFiltro] = React.useState('');
 
-    // React.useEffect(() => {console.log(listaVenta);
-    //     // const prodConStock = productosLocal.filter(prod => {return prod.stock > 0});
-    //     // console.log(prodConStock);
-    //     console.log("algo");
-    //     if (listaVenta.length > 0) {
-    //         const sumatoria = listaVenta.reduce((acum, prod) => {
-    //             const x = acum + (parseInt(prod.cant) * parseInt(prod.price));
-    //             return x;
-    //         }, 0);
-    //         setMontototal(sumatoria);
-    //     } else {
-    //         setMontototal(0);
-    //     }
-    // }, []);
+    const cantOnChange = (e) => {
+        setTextFiltro([e.target.name] = e.target.value);
+        console.log(textFiltro);
+    }
+
+    const llamarFiltro = ()=>{
+        console.log(textFiltro);
+        filtrarProd(textFiltro);
+    }
 
     return (
         <Fragment>
             <div className="container mb-3 mt-5 row align-items-center ">
                 <div className="col">
                     <form className="d-flex">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-outline-success" type="submit">Search</button>
+                        <input className="form-control me-2" type="search" placeholder="Buscar ..." aria-label="Search" name="textFil" onChange={cantOnChange}/>
+                        <button className="btn btn-outline-success" type="button" onClick={llamarFiltro}>Filtrar</button>
                     </form>
                 </div>
                 <div className="col w-100 ">

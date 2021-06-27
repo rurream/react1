@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import './cards.css';
 import 'animate.css/animate.min.css';
 import './card.css';
-import { productos, venta } from '../store/store';
+import { venta } from '../store/store';
 
 function Card({ id, name, stock, price, img, actualizarProductos }) {
 
@@ -12,15 +12,11 @@ function Card({ id, name, stock, price, img, actualizarProductos }) {
         setCant([e.target.name] = e.target.value);
     }
 
-    const alCarrito = () => {//throw new Error('Error de prueba')
+    const alCarrito = () => {
         try {
             if (stock < cant) {
-                // console.log("No hay stock suficiente.");
-                throw new Error('No hay stock suficiente.')
-                //modal
-                return
+                throw new Error('No hay stock suficiente.');
             }else if (cant == 0 || isNaN(cant)){
-                // console.log("Se debe indicar la cantidad a comprar.");
                 throw new Error('Se debe indicar la cantidad a comprar.')
             } else {
                 venta({
@@ -32,6 +28,7 @@ function Card({ id, name, stock, price, img, actualizarProductos }) {
                 });
             }
             actualizarStateInFather();
+            setCant(0);
         } catch (error) {
             console.log(error);
         }
@@ -57,7 +54,8 @@ function Card({ id, name, stock, price, img, actualizarProductos }) {
                     <p className="card-text text-secondary">$ {price} /Kg.</p>
                     <div className="row align-content-center align-items-center">
                         <div className="col-6 ">
-                            <input type="number" placeholder="cantidad" className="mx-1 w-50" name="cantidad" onChange={cantOnChange} />Kg.
+                            {/* <input type="number" placeholder="cantidad" className="mx-1 w-50" name="cantidad" onChange={cantOnChange} />Kg. */}
+                            <input type="number" placeholder="cantidad" className="mx-1 w-50" value={cant} onChange={cantOnChange} />Kg.
                         </div>
                         <div className="col-6">
                             <button className="btn btn-success mx-1 text-align-end" onClick={alCarrito}>Comprar</button>
